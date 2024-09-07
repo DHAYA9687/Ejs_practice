@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Header</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="#">Logo</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/service">Services</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </header>
+    <div class="input">
+      <form action="/submit" method="POST">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <% if (locals.name) { %>
+    <h1>Hello <%= name %></h1>
+    <% } else { %>
+    <h1>Hello, Guest!</h1>
+    <% } %> <%-include("main.ejs")%>
+    <script>
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
